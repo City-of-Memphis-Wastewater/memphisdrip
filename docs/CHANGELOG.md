@@ -6,6 +6,12 @@ The format is (read: strives to be) based on [Keep a Changelog](https://keepacha
 
 ---
 
+## [0.1.4] – 2026-02-12
+### Fixed:
+- Ensure typer is only an optional dependency.
+
+---
+
 ## [0.1.3] – 2026-02-12
 ### Added:
 - notifier.safe_notify()
