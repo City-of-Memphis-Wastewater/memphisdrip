@@ -41,14 +41,12 @@ jobs:
           uv run memphisdrip  --help
 
       - name: Generate Checksums
-        if: false
         run: |
           cd dist
           sha256sum * > checksums.txt
           echo "Generated SHA256 hashes for build artifacts."
 
       - name: Upload Artifacts to GitHub Release
-        if: false
         uses: softprops/action-gh-release@v2
         with:
           files: |
@@ -60,12 +58,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Remove non-dist files for PyPI
-        if: false
         run: rm dist/checksums.txt
         continue-on-error: true
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        # with:
-        #  packages-dir: dist/
+         with:
+          packages-dir: dist/
         # Trusted Publishing: no token needed — uses OIDC automatically
